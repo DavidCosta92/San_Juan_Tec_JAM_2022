@@ -1,1 +1,23 @@
-<h style="color:red">{{error}}</h>
+<div>
+    <h3>FORM DE ESTUDIANTES</h3>
+    {% include("formEstudiante.html") %}
+
+    <h5>ESTUDIANTES TOTALES</h5>
+    {% for estudiante in estudiantes %}
+        <div>
+            <h3>{{estudiante.nombre}}</h3>
+            <p>{{estudiante.apellido }}</p>
+            <p>{{estudiante.email }}</p>
+            <div>
+                <button class="btn btn-dark">
+                    <a href="{{url_for('estudiantes.actualizarEstudiante', id=estudiante.id)}}">Update</a>
+                </button>
+                <button class="btn btn-dark">
+                    <a href="{{url_for('estudiantes.borrarEstudiante', id=estudiante.id)}}">Delete</a>
+                </button>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% include("formCursos.html") %}
