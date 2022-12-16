@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+p{
+    color: red;
+}
+
+h1{
+    font-size: 5rem;
+}
+
+#importante{
+    color: blue;
+    font-size: 10rem;
+}
