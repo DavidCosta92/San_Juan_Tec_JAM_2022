@@ -9,9 +9,9 @@ router = Blueprint("estudiantes", __name__)
 
 @router.route('/')
 def index():
-    todosLosEstudiantes = Estudiante.query.all()
     todosLosCursos = Curso.query.all()
-    return render_template("index.html", estudiantes = todosLosEstudiantes , cursos = todosLosCursos )
+    return render_template("index.html", cursos = todosLosCursos )
+
 
 @router.route("/agregarEstudiante/", methods=["POST"])
 def agregarEstudiante():
@@ -23,7 +23,7 @@ def agregarEstudiante():
     print(nuevoEstudiante)
     db.session.add(nuevoEstudiante)
     db.session.commit()
-    return redirect(url_for('estudiantes.index'))
+    return redirect(url_for('estudiantes.admin'))
 
 @router.route("/actualizarEstudiante/<id>" , methods=["POST", "GET"])
 def actualizarEstudiante(id):
@@ -33,7 +33,7 @@ def actualizarEstudiante(id):
         estudianteAActualizar.apellido = request.form["apellido"]
         estudianteAActualizar.email = request.form["email"]
         db.session.commit()
-        return redirect(url_for('estudiantes.index'))
+        return redirect(url_for('estudiantes.admin'))
     else:
         return render_template("actualizarEstudianteForm.html", estudiante=estudianteAActualizar)
 
@@ -42,7 +42,7 @@ def borrarEstudiante(id):
     estudianteAEliminar = Estudiante.query.get(id)
     db.session.delete(estudianteAEliminar)
     db.session.commit()
-    return redirect(url_for('estudiantes.index'))
+    return redirect(url_for('estudiantes.admin'))
 
 @router.route("/agregarCurso/", methods=["POST"])
 def agregarCurso():
@@ -56,14 +56,14 @@ def agregarCurso():
     nuevoCurso = Curso(nombre,contenido, clases, descripcion,requisitos, precio)
     db.session.add(nuevoCurso)
     db.session.commit()
-    return redirect(url_for('estudiantes.index'))
+    return redirect(url_for('estudiantes.admin'))
 
 @router.route("/borrarCurso/<id>")
 def borrarCurso(id):
     cursoAEliminar = Curso.query.get(id)
     db.session.delete(cursoAEliminar)
     db.session.commit()
-    return redirect(url_for('estudiantes.index'))
+    return redirect(url_for('estudiantes.admin'))
 
 
 @router.route("/actualizarCurso/<id>", methods=["POST", "GET"])
@@ -78,7 +78,7 @@ def actualizarCurso(id):
         cursoAActualizar.precio = request.form["precio"]          
         db.session.commit()
         
-        return redirect(url_for('estudiantes.index'))
+        return redirect(url_for('estudiantes.admin'))
     else:
         return render_template("actualizarCursoForm.html", curso=cursoAActualizar)
     
@@ -106,3 +106,10 @@ def inscribirEstudiante(id):
         return redirect(url_for('estudiantes.index'))
     else:
         return render_template("inscripcionCursoForm.html", curso=curso)
+
+
+@router.route("/admin/")
+def admin():
+    todosLosEstudiantes = Estudiante.query.all()
+    todosLosCursos = Curso.query.all()
+    return render_template("admin.html" , estudiantes = todosLosEstudiantes , cursos = todosLosCursos )

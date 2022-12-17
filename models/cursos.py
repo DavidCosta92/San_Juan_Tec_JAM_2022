@@ -18,19 +18,18 @@ class Curso (db.Model):
         self.descripcion=descripcion
         self.requisitos=requisitos
         self.precio=precio
-        self.estudiantes=""
+        self.estudiantes="Sin estudiantes"
 
     def agregarEstudiante(self,estudiante):
         idEst = estudiante.getId()
-
-        if len(self.estudiantes) > 0: 
+        if self.estudiantes != "Sin estudiantes":
             listaEstudiantes = self.estudiantes.split(",")
-            
-            if idEst not in listaEstudiantes:
-                listaEstudiantes.append(str(idEst))
-                self.estudiantes = ",".join(str(idEst))
+            listaEstudiantes.append(str(idEst))
+            stringEstudiante = ",".join(listaEstudiantes)
+            self.estudiantes = stringEstudiante
         else:
             self.estudiantes = str(idEst)
+            
 
 
 

@@ -16,6 +16,9 @@
     </div>
     <div>
         <h3 class="tituloPagina">Nuestros cursos</h3>
+        <div>
+            <a href="{{url_for('estudiantes.admin')}}" ><button class="btn btn-info">loguin como =>  ADMINISTRADOR</button> </a>
+        </div>
         <div class="container_card">
             {% for curso in cursos %}
             <card class="tarjeta">
@@ -39,57 +42,37 @@
                     <button class="boton">
                         <a href="{{url_for('estudiantes.inscribirEstudiante', id=curso.id)}}">INSCRIBIRME</a>
                     </button>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{curso.id}}">
-                        INSCRIBIRME modal
-                    </button>
-                    <!-- Modal -->
-                        <div class="modal fade" id="modal{{curso.id}}" tabindex="-1" aria-labelledby="modal{{curso.id}}" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modal{{curso.id}}">{{curso.nombre}}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h5>{{curso.nombre}} ACA DEBERIA PONER EL FORMULARIO</h5>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                    <div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{curso.id}}">
+                            Launch demo modal
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal{{curso.id}}" tabindex="-1" aria-labelledby="{{curso.nombre}}" aria-hidden="true">
+                            <div class="modal-dialog"> 
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="{{curso.nombre}}">{{curso.nombre}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                ...
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
+                            </div>
                         </div>
-                    <!-- Modal -->
+
+                    </div>
                 </div>
             </card>
         {% endfor %}
         </div>
     </div>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
     <footer>
         <div>
             <div class="containerFooter">

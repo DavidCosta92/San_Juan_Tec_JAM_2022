@@ -1,10 +1,13 @@
-<form action="/agregarCurso/", method="POST">
-    <input type="text" name="nombre" placeholder="Nombre del curso">
-    <input type="text" name="contenido" placeholder="contenido">
-    <input type="text" name="clases" placeholder="clases">
-    <input type="text" name="descripcion" placeholder="Descripcion del curso">
-    <input type="text" name="requisitos" placeholder="requisitos">
-    <input type="text" name="precio" placeholder="precio">
-
-    <button>GUARDAR</button>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css' ) }}">
+<form action="/agregarCurso/", method="POST" class="formularioAgregarCurso">
+    <div>
+        <input type="text" name="nombre" placeholder="Nombre del curso">
+        <input type="text" name="contenido" placeholder="contenido">
+        <input type="text" name="clases" placeholder="clases">
+        <input type="text" name="descripcion" placeholder="Descripcion del curso">
+        <input type="text" name="requisitos" placeholder="requisitos">
+        <input type="text" name="precio" placeholder="precio">
+    </div>
+    <button class="btn btn-success botonAgregarCurso">GUARDAR</button>
 </form>
