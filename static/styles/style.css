@@ -51,6 +51,9 @@ body{
     margin: 15px;
     margin-bottom: 80x;
     box-shadow: 1px 2px 2px rgb(126, 126, 126);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .tarjeta:hover {
@@ -89,6 +92,7 @@ body{
 .botonContainer{
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .boton {
@@ -111,3 +115,92 @@ body{
     background-color: rgb(33, 121, 14);
     text-decoration: underline;
 }
+
+
+
+/* FOOTER */
+
+.containerFooter {
+    padding: 30px;
+    color: white;
+    background-color: rgb(47, 1, 28);
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: space-around;
+    /*gap: 420px; */
+    margin: auto;
+    margin-top: 80px;
+}
+
+
+.containerFooter h5 {
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    display: flex;
+    margin-bottom: 2rem;
+}
+.containerFooter{
+    overflow: hidden;
+}
+
+#formulary, .columna2{
+    margin-top: 50px;
+}
+
+.containerFooter .imagen {
+    display: inline;
+    filter: hue-rotate(60deg) brightness(400%);
+    width:100%;
+    object-fit: scale-down;
+  
+}
+
+
+.containerFooter .formulario input {
+    width: 100%;
+    height: 35px;
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+    background-color: white;
+    border: white thin solid;
+    border-radius: 20px;
+    text-align: left;
+    padding: 12px;
+    font-size: .9rem;
+}
+
+
+.containerFooter #mensaje input {
+    height: 55px;
+    border-radius: 10px;
+}
+
+.containerFooter::placeholder {
+    color: rgba(255, 105, 0, 1);
+}
+
+.containerFooter .formulario button {
+    width: 45%;
+    margin: auto;
+    display: inline;
+    text-align: center;
+    border: solid thin white;
+    padding: .7rem;
+    border-radius: 2rem;
+    background-color: rgba(255, 105, 0, 1);
+    font-weight: 600;
+    font-size: .8rem;
+    cursor: pointer;
+    color: white;
+}
+
+
+.formulario button:hover {
+    background-color: white;
+    color: rgba(255, 105, 0, 1);
+    transition: all 0.8s;
+}
+

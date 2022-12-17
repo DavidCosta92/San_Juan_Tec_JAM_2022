@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRUEBA</title>
+    <title>San Juan TEC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    
-
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css' ) }}">
 
 </head>
 <body>
 
     <div class="imagenHero" >
-        <img src="../static/img/TALENTO-TEC-capacitate-de-PROGRAMACION.jpg"
+        <img src="../static/img/TALENTO-TEC-capacitate-de-PROGRAMACION.jpg">
     </div>
     <div>
         <h3 class="tituloPagina">Nuestros cursos</h3>
@@ -42,12 +39,88 @@
                     <button class="boton">
                         <a href="{{url_for('estudiantes.inscribirEstudiante', id=curso.id)}}">INSCRIBIRME</a>
                     </button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{curso.id}}">
+                        INSCRIBIRME modal
+                    </button>
+                    <!-- Modal -->
+                        <div class="modal fade" id="modal{{curso.id}}" tabindex="-1" aria-labelledby="modal{{curso.id}}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modal{{curso.id}}">{{curso.nombre}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5>{{curso.nombre}} ACA DEBERIA PONER EL FORMULARIO</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Modal -->
                 </div>
             </card>
         {% endfor %}
         </div>
     </div>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <footer>
+        <div>
+            <div class="containerFooter">
+                <div class="columna2">
+                    <div class="imagen">
+                        <img src="https://spe.sanjuan.gob.ar/wp-content/uploads/2022/05/logos-gobierno-600x43.png"
+                            alt="publi"></img>
+                    </div>
+                </div>
+                <div id="formulary">
+                    <div class="container-form">
+                        <h5>Envianos tu consulta</h5>
+                        <form class="formulario">
+                            <input class="form-control" type="text" name="name" placeholder="Nombre" required
+                                autofocus></input>
+                            <input class="form-control" type="text" name="mail" placeholder="Email" required
+                                autofocus></input>
+                            <div id="mensaje"><input class="form-control" type="text" name="message" placeholder="Mensaje"
+                                    required autofocus></input></div>
+                            <button type="submit">Consultar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../static/js/index.js"></script>
 </body>
 
 
