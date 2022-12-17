@@ -43,29 +43,50 @@
                         <a href="{{url_for('estudiantes.inscribirEstudiante', id=curso.id)}}">INSCRIBIRME</a>
                     </button>
                     <div>
+                        <!-- Modal -->
+                            <div class="modal" id="modal{{curso.id}}" tabindex="-1" aria-labelledby="{{curso.nombre}}" aria-hidden="true">
+                                <div class="modal-dialog"> 
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="{{curso.nombre}}">{{curso.nombre}}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/inscribirEstudiante/{{curso.id}}", method="POST">
+                                            <div class="box">
+                                                <div class="card-body">
+                                                    <h2 class="card-subtitle mb-2 text-muted">San Juan TEC</h2>
+                                                    <h4 class="card-title">Inscripcion a  <strong>{{curso.nombre}}</strong></h4>
+                                                                                                    
+                                                    <div class="inputs">
+                                                        <label  for="exampleFormControlInput1" class="form-label">Nombre:</label>
+                                                        <input  type="text" name="nombre" class="form-control input" id="exampleFormControlInput1" >
+                                                    
+                                                    
+                                                        <label for="exampleFormControlInput1" class="form-label">Apellido:</label>
+                                                        <input type="text" name="apellido"class="form-control input" id="exampleFormControlInput1" >
+                                                    
+                                                        <label for="exampleFormControlInput1" class="form-label">Mail:</label>
+                                                        <input type="email" name="email" class="form-control input" id="exampleFormControlInput1" >
+                                                    
+                                                    </div> 
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success botonAgregarCurso">Inscribirme</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{curso.id}}">
-                            Launch demo modal
+                        <button type="button" class="btn btn-primary botonModal" data-bs-toggle="modal" href="#modal{{curso.id}}">
+                            INSCRIBIRME (modal error)
                         </button>
                         
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal{{curso.id}}" tabindex="-1" aria-labelledby="{{curso.nombre}}" aria-hidden="true">
-                            <div class="modal-dialog"> 
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="{{curso.nombre}}">{{curso.nombre}}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                ...
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>
