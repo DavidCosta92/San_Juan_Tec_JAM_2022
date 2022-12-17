@@ -16,9 +16,12 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Email</th>
-                <th scope="col">Acciones</th>
+                <th scope="col" class="botonAcionesTable">Acciones</th>
               </tr>
             </thead>
+            <div class="botonNuevoEstudiante">
+                <a href="{{url_for('estudiantes.renderFormEstudiante')}}" ><button class="btn btn-success">Nuevo estudiante</button></a>
+            </div>
             <tbody>
             {% for estudiante in estudiantes %}
               <tr>
@@ -26,12 +29,12 @@
                 <td>{{estudiante.nombre}}</td>
                 <td>{{estudiante.apellido }}</td>
                 <td>{{estudiante.email }}</td>
-                <td>
+                <td class="botonAcionesTable">
                     <button class="btn btn-warning">
-                        <a href="{{url_for('estudiantes.actualizarEstudiante', id=estudiante.id)}}">Update</a>
+                        <a href="{{url_for('estudiantes.actualizarEstudiante', id=estudiante.id)}}">Actualizar</a>
                     </button>
                     <button class="btn btn-danger">
-                        <a href="{{url_for('estudiantes.borrarEstudiante', id=estudiante.id)}}">Delete</a>
+                        <a href="{{url_for('estudiantes.borrarEstudiante', id=estudiante.id)}}">Borrar</a>
                     </button>
                 </td>
               </tr>
@@ -54,8 +57,10 @@
             <th scope="col">Contenido</th>
             <th scope="col">Clases</th>
             <th scope="col">Descripcion</th>
+            <th scope="col">Requeisitos</th>
             <th scope="col">Precio</th>
-            <th scope="col">Acciones</th>
+            <th scope="col">Estudiantes</th>
+            <th scope="col" class="botonAcionesTable">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -66,13 +71,24 @@
                     <td>{{curso.contenido}}</td>
                     <td>{{curso.clases}}</td>
                     <td>{{curso.descripcion}}</td>
+                    <td>{{curso.requisitos}}</td>
                     <td>{{curso.precio}}</td>
+                    
+                    {% if curso.estudiantes != "" %}
                     <td>
+                        <button class="btn btn-primary">
+                            <a href="{{url_for('estudiantes.verEstudiantesPorCurso', id=curso.id)}}">Ver estudiantes</a>
+                        </button>
+                    </td>
+                    {% else %}
+                    <td><button class="btn btn-secondary disabled">SIN estudiantes</button></td>
+                    {% endif %}
+                    <td >
                         <button class="btn btn-warning">
-                            <a href="{{url_for('estudiantes.actualizarCurso', id=curso.id)}}">Update</a>
+                            <a href="{{url_for('estudiantes.actualizarCurso', id=curso.id)}}">Actualizar</a>
                         </button>
                         <button class="btn btn-danger">
-                            <a href="{{url_for('estudiantes.borrarCurso', id=curso.id)}}">Delete</a>
+                            <a href="{{url_for('estudiantes.borrarCurso', id=curso.id)}}">Borrar</a>
                         </button>
                     </td>
                 </tr>

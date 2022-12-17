@@ -42,9 +42,13 @@
                     <button class="boton">
                         <a href="{{url_for('estudiantes.inscribirEstudiante', id=curso.id)}}">INSCRIBIRME</a>
                     </button>
-                    <div>
+                <div>
+                    <!--Button trigger modal -->
+                    <button type="button" class="btn btn-primary botonModal" data-bs-toggle="modal" href="#modal{{curso.id}}">
+                        INSCRIBIRME (modal error)
+                    </button>
                         <!-- Modal -->
-                            <div class="modal" id="modal{{curso.id}}" tabindex="-1" aria-labelledby="{{curso.nombre}}" aria-hidden="true">
+                            <div class="modal fade" id="modal{{curso.id}}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog"> 
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -81,10 +85,7 @@
                                 </div>
                                 </div>
                             </div>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary botonModal" data-bs-toggle="modal" href="#modal{{curso.id}}">
-                            INSCRIBIRME (modal error)
-                        </button>
+
                         
 
 

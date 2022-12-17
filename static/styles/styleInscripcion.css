@@ -25,7 +25,6 @@ p, a {
 
 .box:hover {
     transition: all 0.7s;
-    background-color: rgb(182, 227, 212);
 }
 .inputs{
     display: flex;

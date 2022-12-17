@@ -12,6 +12,9 @@ def index():
     todosLosCursos = Curso.query.all()
     return render_template("index.html", cursos = todosLosCursos )
 
+@router.route("/renderFormEstudiante/")
+def renderFormEstudiante():
+    return render_template("formEstudiante.html")
 
 @router.route("/agregarEstudiante/", methods=["POST"])
 def agregarEstudiante():
@@ -113,3 +116,12 @@ def admin():
     todosLosEstudiantes = Estudiante.query.all()
     todosLosCursos = Curso.query.all()
     return render_template("admin.html" , estudiantes = todosLosEstudiantes , cursos = todosLosCursos )
+
+@router.route("/admin/verEstudiantesPorCurso/<id>")
+def verEstudiantesPorCurso(id):
+    cursoAConsultar = Curso.query.get(id)
+    listaEstudiantesId = cursoAConsultar.estudiantes.split(",")
+    listaEstudiantesEnCurso = []
+    for estID in listaEstudiantesId:
+       listaEstudiantesEnCurso.append(Estudiante.query.get(estID)) 
+    return render_template("verEstudiantesPorCurso.html" , estudiantesPorCurso = listaEstudiantesEnCurso, curso = cursoAConsultar )

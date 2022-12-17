@@ -1,0 +1,41 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css' ) }}">
+
+
+<div>
+    <p class="tituloAdmin">Listado de todos los estudiantes en curso {{curso.nombre}} </p>
+    <a href="{{url_for('estudiantes.admin')}}" ><button class="btn btn-info">Volver</button></a>
+
+    
+        <div>
+        </div>
+        <table class="table table-striped table-hover align-middle">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for estudiante in estudiantesPorCurso %}
+              <tr>
+                <th scope="row">{{estudiante.id}}</th>
+                <td>{{estudiante.nombre}}</td>
+                <td>{{estudiante.apellido }}</td>
+                <td>{{estudiante.email }}</td>
+                <td>
+                    <button class="btn btn-warning">
+                        <a href="{{url_for('estudiantes.actualizarEstudiante', id=estudiante.id)}}">Actualizar</a>
+                    </button>
+                    <button class="btn btn-danger">
+                        <a href="{{url_for('estudiantes.borrarEstudiante', id=estudiante.id)}}">Borrar</a>
+                    </button>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+</div>
